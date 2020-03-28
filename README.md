@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 # GisPartner-Registration-App
-Aplikacja służąca do rejestrowania użytkowników - więcej informacji README
+Aplikacja służąca do rejestrowania użytkowników
 =======
 # GispartnerRegistrationApp
 
