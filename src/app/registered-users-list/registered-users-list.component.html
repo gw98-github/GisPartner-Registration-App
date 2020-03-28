@@ -1,0 +1,30 @@
+<h2 class="center" style="padding-bottom: 15px;">Lista zarejestrowanych</h2>
+
+<div class="wrapper tex-center center">
+  <div class="center btn-group" style=" padding-bottom: 15px;" role="group">
+    <button type="button" class="btn btn-secondary" (click)="firstNameSort()">wg. imienia</button>
+    <button type="button" class="btn btn-secondary" (click)="secondNameSort()">wg. nazwiska</button>
+    <button type="button" class="btn btn-secondary" (click)="emailSort()">wg. adresu email</button>
+    <button type="button" class="btn btn-secondary" (click)="loginSort()">wg. loginu</button>
+  </div>
+</div>
+
+
+<table class="table col-md-6 center">
+    <thead>
+      <tr>
+        <th scope="col">Imię</th>
+        <th scope="col">Nazwisko</th>
+        <th scope="col">Adres e-mail</th>
+        <th scope="col">Login</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.firstName}}</td>
+        <td>{{user.secondName}}</td>
+        <td>{{user.emailAddress}}</td>
+        <td>{{user.login}}</td>
+      </tr>
+    </tbody>
+  </table>

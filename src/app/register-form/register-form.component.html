@@ -1,0 +1,64 @@
+<head>
+    <style>
+        .center{
+            margin: auto;
+            width: 500px;
+            border: 3px solid grey;
+        }
+        .paddingInput{
+            padding:10px;
+            padding-right: 30px;
+            padding-left: 30px;
+        }
+        .alertStyle{
+            height: 40px;
+        }
+    </style>
+</head>
+
+<div class="center">
+    <h3 style="text-align: center; padding-top: 20px;">Formularz rejestracyjny</h3>
+    <div class="paddingInput">
+        <h6> Imię</h6>
+        <input required #firstName="ngModel" ngModel name="firstName" type="text" class="form-control" placeholder="Imię" id="InputFirstName">
+        <div class="alert alert-danger alertStyle" 
+            *ngIf="firstName.touched && firstName.value.length < 3 || !firstName.touched && !correctInput">
+            Imię musi posiadać conajmniej 3 znaki</div>
+    </div>
+    <div class="paddingInput">
+        <h6> Nazwisko</h6>
+        <input required #secondName="ngModel" ngModel name="secondName" type="text" class="form-control" placeholder="Nazwisko" aria-label="LastName" id="InputSecondName">
+        <div class="alert alert-danger alertStyle" 
+            *ngIf="secondName.touched && secondName.value.length < 3 || !secondName.touched && !correctInput">
+            Nazwisko musi posiadać conajmniej 3 znaki</div>
+    </div>
+    <div class="paddingInput">
+        <h6> Adres e-mail</h6>
+        <input required #email="ngModel" ngModel name="email" type="text" class="form-control" placeholder="Adres e-mail" aria-label="Adres e-mail" id="InputEmail">
+        <div class="alert alert-danger alertStyle" 
+            *ngIf="!isEmailCorrect() && email.touched || !email.touched && !correctInput">
+            Adres email jest niepoprawny</div>        
+        <div class="alert alert-danger alertStyle" *ngIf="emailExists()">Konto o podanym adresie e-mail już istnieje</div>
+    </div>
+    <div class="paddingInput">
+        <h6> Login</h6>
+        <input required #login="ngModel" ngModel name="login" type="text" class="form-control" placeholder="Login" aria-label="Login" id="InputLogin">
+        <div class="alert alert-danger alertStyle" 
+            *ngIf="login.touched && login.value.length < 5 && login.enabled || !login.touched && !correctInput">
+            Login musi posiadać co najmniej 5 znaków</div>
+        <div class="alert alert-danger alertStyle" *ngIf="loginExists()">Podany login już istnieje</div>
+    </div>
+    <div class="paddingInput">
+        <h6> Hasło</h6>
+        <div class="input-group">
+            <input required #password="ngModel" ngModel name="password" type="password" class="form-control" placeholder="Hasło" aria-label="Password" id="InputPassword">
+            <button type="button" class="btn btn-outline-secondary" (click)="showPassword()" id="ButtonPassword">Pokaż</button>
+        </div>
+        <div class="alert alert-danger alertStyle" 
+            *ngIf="password.touched && password.value.length < 5 || !password.touched && !correctInput">
+            Hasło musi posiadać conajmniej 5 znaków</div>
+    </div>
+    <div style=" padding-top: 15px;">
+        <button type="button" class="btn btn-primary" style="width: 100%; font-size: larger; height: 50px; font-size:larger;" (click)="register()">Zarejestruj się</button>
+    </div>
+</div>
