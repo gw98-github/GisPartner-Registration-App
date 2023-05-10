@@ -28,7 +28,7 @@
     "datatables.net-dt": "^1.10.20",
     "firebase": "^7.12.0",
     "hammerjs": "^2.0.8",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "materials": "^1.1.3",
     "ng-bootstrap": "^1.6.3",
     "ngx-bootstrap": "^5.5.0",
